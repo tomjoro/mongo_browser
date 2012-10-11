@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title><%= site_title %><%= " :: #{@title}" unless @title.nil? %></title>
+  <script type="text/javascript" src="/javascripts/jquery.js"></script>
+  <script type="text/javascript" src="/javascripts/jquery.easing.js"></script>
+  <script type="text/javascript" src="/javascripts/jqueryFileTree.js"></script>
+  <link rel="stylesheet" href="/stylesheets/jqueryFileTree.css" type="text/css"/>
+    <script type="text/javascript">
+    $(document).ready( function() {
+        $('#fileTree').fileTree({ root: '', script: 'jqueryfiletree/content' }, function(file) {
+            alert(file);
+        });
+    });
+    </script>
+</head>
+<body>
+
+<%= yield %>
+
+<div id="footer">
+	<p class="left"><%= site_title %> &copy; <%= Time.now.strftime("%Y") %> <a href="mailto:tomjoro@gmail.com">Thomas O'Rourke</a></p>
+	<p class="right">Powered by <a href="http://www.sinatrarb.com">Sinatra</a></p>
+</div>
+
+</body>
+
+</html>

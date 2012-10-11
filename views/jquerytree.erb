@@ -1,0 +1,13 @@
+<ul class="jqueryFileTree" style="display: none;">
+    <%   @results.each do | res | %>
+    <%     if res.has_key? :abs_dir   %>
+            <li class="directory collapsed">
+              <a href="#" rel="<%=res[:abs_dir]%>"><%= res[:rel_dir] %></a>
+            </li>
+        <% else %>
+            <li class="file ext_<%=res[:file_ext]%>">
+              <a href="#" rel="<%=res[:abs_file]%>"><%=res[:rel_file]%></a>
+            </li>
+        <%  end %>
+    <% end %>
+</ul>
