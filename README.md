@@ -38,19 +38,21 @@ rackup config.ru
 
 
 path can be:
+```sh
 /
 /database_name/
 /database_name/collection/
 /database_name/collection/_id
 /database_name/collection/_id/field
+```
 
 This is a bit convoluted but here goes:
-  Jquerytree requires '/' as the delimiter. So mongo has some issues with this.
-  * database names can't have / so we are ok there
-  * collection names can have '/', but not $, so we use the $ to escape the /'s in the collection name
-  * The _id can be String or BSON::ObjectId which is stripped by to_s, so I added an extra path $String or $BSON::ObjectId
-  * The _id is assumed to be everything after the type match (which is the 4th '/')
-  * Finally, the _id name can have '/''s and $'s etc, but it can't have '.', so I use that around the key name so when it's posted it makes sense.
+  JQueryFiletree requires '/' as the delimiter. So mongo has some issues with this.
+  * **database names** can't have / so we are ok there
+  * **collection names** can have '/', but not $, so we use the $ to escape the /'s in the collection name
+  * The **_id** can be String or BSON::ObjectId which is stripped by to_s, so I added an extra path $String or $BSON::ObjectId
+  	  - The **_id** is assumed to be everything after the type match (which is the 4th '/')
+  * Finally the *field_name* can have everything except '.' in it's name so I surround it with '.''s
       - then take /1/2/3/type_of_id/this is the _id/.key.
       - take 4 slashes down to get start of _id
       - work updwards removing the .key.
