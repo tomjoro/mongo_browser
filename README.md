@@ -1,8 +1,10 @@
-Mongo Browser using JQueryFileTree running on Sinatra
+MongoDB Web UI Browser using JQueryFiletree running on Sinatra
 
-This application allows you to browse your mongo database in hierarchical tree view fashion.
+This application allows you to browse your Mongo database in hierarchical tree view. This makes it easy to quickly glance over all the databases, collections and open individual documents. By default the last 20 inserted documents are shown from each collection.
 
-It uses the JQueryFileTree to show the mongo databse
+This application doesn't try to be a complete MongoDB Manager, it's just a simple fast easy browser! It is also a good example of using Sinatra and JQueryFiletree.
+
+![Example Screenshot](https://raw.github.com/tomjoro/mongo_browser/master/mongo_browser.png)
 
 It can browse:
   * databases
@@ -36,8 +38,9 @@ rackup config.ru
 
  Browsing mongo is harder than I expected!
 
+Most Web based UI's don't handle all the fun things that can happen with naming datbaases, collections, and fields. See the screenshot for some examples.
 
-path can be:
+The basic idea is that the path can be like below (but it is actually more complicated):
 ```sh
 /
 /database_name/
