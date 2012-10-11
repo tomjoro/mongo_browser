@@ -7,8 +7,10 @@ It uses the JQueryFileTree to show the mongo databse
 It can browse:
   * databases
   * collections
+  * objects in collection (the _id's of the last 20 greatest _id's are shown by default)
   * fields
 
+The values refesh everytime you open the folder. So if you collection is updated, if you close and repoen the folder the updates will be seen.
 
 ## Installation
 
