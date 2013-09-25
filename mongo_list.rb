@@ -8,7 +8,7 @@ module MongoList
     @connection = Mongo::Connection.new(*connection_settings)
   end
 
-  # create the directory hierarchy for mongo browsering
+  # Create the directory hierarchy for mongo browsering
   #
   # path can be:
   # /
